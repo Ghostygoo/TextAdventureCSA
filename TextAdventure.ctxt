@@ -1,4 +1,18 @@
 #BlueJ class context
-comment0.params=args
-comment0.target=void\ main(java.lang.String[])
-numComments=1
+comment0.params=
+comment0.target=void\ main()
+comment1.params=
+comment1.target=void\ attackBankRobber()
+comment2.params=
+comment2.target=void\ avoidSituation()
+comment3.params=
+comment3.target=void\ forwardsAtStart()
+comment4.params=
+comment4.target=void\ rightAtStart()
+comment5.params=
+comment5.target=void\ helpKidnappers()
+comment6.params=
+comment6.target=void\ helpKidnapped()
+comment7.params=
+comment7.target=void\ avoidingKidnap()
+numComments=8
