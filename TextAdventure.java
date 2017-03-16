@@ -1,15 +1,21 @@
-
-/**
- * Write a description of class TextAdventure here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-
+import java.util.Random;
 import java.util.Scanner;
+import java.lang.*;
+
+
 public class TextAdventure
 {
+   public void wait (int time){
+       try{
+           Thread.sleep(time);
+       }
+       catch (InterruptedException ex){
+      
+       }
+   }
+   
    Scanner in = new Scanner(System.in);
+   
     public void main(){
      
         TextAdventure call = new TextAdventure();
@@ -45,7 +51,7 @@ public class TextAdventure
             }
         }
         else if (statement.contains("right")){
-            System.out.println("This ");
+            rightAtStart();
         }    
         else{
             System.out.println("sorry, that is not an option.");
@@ -165,25 +171,14 @@ public class TextAdventure
 
    }
 
-   public void attackBankRobber(){
-       System.out.println("You get shot in the chest and start to bleed,");
-       System.out.println("and you are paralized from the neck down,");
-       System.out.println("but the robber has been distracted long enough to be arrested,");
-       System.out.println("yet his wingman has gotten away with the cash while the police didn't notice");
-       System.out.println("what do you do?(Call for an officer to help you,");
-       System.out.println("tell one of the units of the remaining theif on the run)");
-    }
-    public void avoidSituation(){
-       System.out.println("You get taken hostage by the initials robber wingman,");
-       System.out.println("and now you have been tied up and put up with the other captives,");
-       System.out.println("what do you do?(roll over and help the others, help yourself, do nothing)");           
-    }
-    public void forwardsAtStart(){
+   public void forwardsAtStart(){
+       System.out.println(" ");
         System.out.println("You reach a crime scene and you see a high grade bank being robbed,");
         System.out.println("what do you do?('attack' armed robber, 'avoid' situation)");
             
         String statement1 = in.nextLine();
         statement1 = statement1.toLowerCase();
+        
         if (statement1.contains("attack")){
             System.out.println("  ");
             attackBankRobber();
@@ -193,7 +188,71 @@ public class TextAdventure
            avoidSituation();
         }
     }
+   public void attackBankRobber(){
+       System.out.println(" ");
+       System.out.println("You get shot in the chest and start to bleed,");
+       System.out.println("and you are paralized from the neck down,");
+       System.out.println("but the robber has been distracted long enough to be arrested,");
+       System.out.println("yet his wingman has gotten away with the cash while the police didn't notice");
+       System.out.println("what do you do?('call' for an officer to help you,");
+       System.out.println("'tell' one of the units about the remaining theif on the run)");
+       
+       String statement27 = in.nextLine();
+       statement27 = statement27.toLowerCase();
+       
+       if (statement27.contains("call")){
+           callOfficer();
+       }
+       if (statement27.contains("tell")){
+           tellOfficer();
+       }
+    }
+    public void avoidSituation(){
+        System.out.println(" ");
+       System.out.println("You get taken hostage by the initials robber wingman,");
+       System.out.println("and now you have been tied up and put up with the other captives,");
+       System.out.println("what do you do?(roll over and help 'yourself', do 'nothing')");  
+       
+       String statement28 = in.nextLine();
+       statement28 = statement28.toLowerCase();
+       
+       if (statement28.contains("yourself")){
+           System.out.println(" ");
+           System.out.println("You escape but get shot once in the back of the knee,");
+           System.out.println("during a firefight, while the rest of the hostages died");
+           System.out.println("when the second robber return to check on them.");
+           
+           wait(6000);
+           gameOverLose();
+       }
+       if (statement28.contains("nothing")){
+           System.out.println(" ");
+           System.out.println("The second robber returns and on the hostages,");
+           System.out.println("an he sees you and the hostages so he kills you and them.");
+           
+           gameOverLose();
+       }
+    }
+    public void callOfficer(){
+        System.out.println(" ");
+        System.out.println("You get carried out on a strecher;");
+        System.out.println("then you get brought to the hospital,");
+        System.out.println("and given surgery, and then you're brought home to recover.");
+        
+        gameOverWin();
+    }
+    public void tellOfficer(){
+        System.out.println(" ");
+        System.out.println("The police units in the area are sent after the runner but, there are no medical");
+        System.out.println(" units near you so you die from blood loss and you are honored,");
+        System.out.println(" by the local police force and you are put on several news channels for your choice.");
+        
+        wait(4000);
+        gameOverWin();
+    }
+    
     public void rightAtStart(){
+        System.out.println(" ");
         System.out.println("You go to an alley way, you could either go back to where you started,");
         System.out.println("or continue forwards, which do you choose?(Go 'back', 'continue' forwards)");
         
@@ -213,25 +272,131 @@ public class TextAdventure
             statementeight = statementeight.toLowerCase();
             
             if (statementeight.contains("kidnappers")){
+                System.out.println("  ");
                 helpKidnappers();
             }
             if (statementeight.contains("kidnapped")){
+                System.out.println("  ");
                 helpKidnapped();
             }
             if (statementeight.contains("avoid")){
+                System.out.println("  ");
                 avoidingKidnap();
             }
         }
-        
     }
-    public void helpKidnappers(){
-        
-    }
+    
     public void helpKidnapped(){
+        System.out.println(" ");
+        System.out.println("you get kidnapped as well. Then after 30 minutes you hear the car shut off,");
+        System.out.println("and then you start feeling the car move forwards and a sudden splashing sound.");
+        System.out.println("Then you notice water seeping into the car about five seconds later.");
+        System.out.println("The other person in the car trunk next to youstarts to panic.");
+        System.out.println("You tell them to calm down but they don't don't listen, about a minite later,");
+        System.out.println("both of you are on the brink of drowning, then the car hits the lake's floor, ");
+        System.out.println("and then you both drown knowing your bodies will never be found.");
         
+        wait(20000);
+        gameOverLose();
     }
     public void avoidingKidnap(){
+        System.out.println(" ");
+        System.out.println("One of the members of the gang noticed you so he shot you 10 times.");
+        System.out.println("Twice in the side, thrice in the chest, twice in the hip, twice in the stomach, and once in the head, killing you.");
         
+        gameOverLose();
+    }
+    
+    public void helpKidnappers(){
+        System.out.println(" ");
+        System.out.println("They spare you and ask if you want to join their gang,");
+        System.out.println("what do you do?('accept' offer, 'decline' offer)");
+        
+        String statemente = in.nextLine();
+        statemente = statemente.toLowerCase();
+        
+        if (statemente.contains("accept")){
+            System.out.println("  ");
+            acceptGangInvite();
+        }
+        if (statemente.contains("decline")){
+            System.out.println("  ");
+            declineGangInvite();
+        }
+    }
+    public void acceptGangInvite(){
+        System.out.println(" ");
+        System.out.println("They give you a Glock handgun and a bandana with some shades and hat.");
+        System.out.println("Then they offer you a ride home. (do you 'accept' or do you 'decline' their offer.)");
+        
+        String statementride = in.nextLine();
+        statementride = statementride.toLowerCase();
+        
+        if (statementride.contains("accept")){
+            System.out.println(" ");
+            System.out.println("They drop you off at your house.");
+            System.out.println("You go straight to bed, and anticipate your next good kidnap.");
+            
+            gameOverWin();
+        }
+        if (statementride.contains("decline")){
+            System.out.println(" ");
+            System.out.println("They drive off and leave you there then you wait for a few hours,");
+            System.out.println("what do you do? ('cross' the road, 'wait' for some more time)");
+            
+            String statementrideno = in.nextLine();
+            statementrideno = statementrideno.toLowerCase();
+            
+            if (statementrideno.contains("wait")){
+                System.out.println(" ");
+                System.out.println("You died from malnutrition/starvation.");
+                
+                gameOverLose();
+            }
+            if (statementrideno.contains("cross")){
+                System.out.println(" ");
+                System.out.println("You get run over by a cop trying to catch some robbers with stolen bags of cash,");
+                System.out.println("that was stolen from a bank earlier that day.");
+                
+                gameOverLose();
+            }
+        }
+    }
+    public void declineGangInvite(){
+        System.out.println(" ");
+        System.out.println("They kill you on the spot thinking that you tried to deceive them");
+        
+        gameOverLose();
+    }
+    
+    
+    public void gameOverWin(){
+        wait(3500);
+        
+        for (int i = 0; i < 1000; i++){
+            System.out.println("================================================================================================================================================");
+        }
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+        System.out.println("================================================================================================================================================");
+        System.out.println("==============================================================You Win===========================================================================");
+        System.out.println("================================================================================================================================================");
+        System.out.println("=============================================================Game Over==========================================================================");
+        System.out.println("================================================================================================================================================");
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+    }
+    public void gameOverLose(){
+        wait(5500);
+        for (int i = 0; i < 1000; i++){
+            System.out.println("================================================================================================================================================");
+            wait(4);
+        }
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+        System.out.println("===================================================================================================================");
+        System.out.println("==============================================================You Lose=============================================");
+        System.out.println("===================================================================================================================");
+        System.out.println("=============================================================Game Over=============================================");
+        System.out.println("===================================================================================================================");
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
     }
     
 }
